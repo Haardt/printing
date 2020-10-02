@@ -2,8 +2,8 @@
 
 $fn=16;
 
-color("red") difference() {
-    $fn=200;
+difference() {
+    $fn=120;
 rotate([90,0,90]) cylinder(5,10,10, center=true);
 
 translate([10,0,0]) sphere(12);
@@ -37,22 +37,17 @@ module shell() {
   }
 }
 
-module raster() {
-    translate([-3.5,0,0]) #cube([4.5, 0.5, 10]);
-}
 
-module eucText(rotation) {
+module eucText() {
 
-
- translate([-3.2, 4, 10.2]) {
-
-   rotate([rotation,0,270]) linear_extrude(height = 0.7) {
+ translate([-2.8, 4,10]) {
+   rotate([90,0,270]) linear_extrude(height = 4) {
        text("EUC", 3);
    }
   }
- translate([-3.2, 8.4, 7.5]) {
-   rotate([rotation,0,270]) linear_extrude(height = 0.7) {
-       text("IS NO CRIME", 2);
+ translate([-2.8, 9.5,6]) {
+   rotate([90,0,270]) linear_extrude(height = 4) {
+       text("IS NOT CRIME", 2);
    }
   }  
   
@@ -60,13 +55,13 @@ module eucText(rotation) {
  
  
  difference() {
+//     union() {
     shell();
-     translate([3.2,0,4.2])#cube([1,19.5,2], center=true);
-     translate([-3.2,0,4.3])#cube([1,19.5,2], center=true);
+    eucText(); 
+    translate([9.5,0,0]) mirror([0,1,0]) eucText();
+     
      translate([-4,0,15])rotate([0,90,0]) {
-//    $fn=160;
+    $fn=160;
     cylinder(8,1.5,1.5);
 }
- }
-    translate([0.0,0,-2])eucText(95); 
-    translate([7.0,0,-2])  mirror([0,1,0]) eucText(85);
+ };

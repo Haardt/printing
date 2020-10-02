@@ -1,0 +1,104 @@
+difference() {
+	multmatrix([[0, 0, 1, 0], [1, 0, 0, 0], [0, 1, 0, 0], [0, 0, 0, 1]]) {
+		cylinder($fn = 120, $fa = 12, $fs = 2, h = 5, r1 = 10, r2 = 10, center = true);
+	}
+	multmatrix([[1, 0, 0, 10], [0, 1, 0, 0], [0, 0, 1, 0], [0, 0, 0, 1]]) {
+		sphere($fn = 120, $fa = 12, $fs = 2, r = 12);
+	}
+	multmatrix([[1, 0, 0, -10], [0, 1, 0, 0], [0, 0, 1, 0], [0, 0, 0, 1]]) {
+		sphere($fn = 120, $fa = 12, $fs = 2, r = 12);
+	}
+}
+difference() {
+	multmatrix([[0, 0, 1, 0], [1, 0, 0, 0], [0, 1, 0, 0], [0, 0, 0, 1]]) {
+		cylinder($fn = 200, $fa = 12, $fs = 2, h = 2, r1 = 10, r2 = 10, center = true);
+	}
+	multmatrix([[1, 0, 0, -4], [0, 1, 0, 0], [0, 0, 1, 0], [0, 0, 0, 1]]) {
+		multmatrix([[0, 0, 1, 0], [0, 1, 0, 0], [-1, 0, 0, 0], [0, 0, 0, 1]]) {
+			cylinder($fn = 200, $fa = 12, $fs = 2, h = 8, r1 = 3, r2 = 3, center = false);
+		}
+	}
+}
+group() {
+	multmatrix([[1, 0, 0, -4], [0, 1, 0, 0], [0, 0, 1, -1], [0, 0, 0, 1]]) {
+		cube(size = [2, 3, 7], center = true);
+	}
+	multmatrix([[1, 0, 0, -5], [0, 1, 0, 0], [0, 0, 1, -5], [0, 0, 0, 1]]) {
+		cube(size = [5, 7, 1], center = true);
+	}
+}
+multmatrix([[1, 0, 0, -0.1], [0, 1, 0, 0], [0, 0, 1, 0], [0, 0, 0, 1]]) {
+	multmatrix([[-1, 0, 0, 0], [0, 1, 0, 0], [0, 0, 1, 0], [0, 0, 0, 1]]) {
+		group() {
+			multmatrix([[1, 0, 0, -4], [0, 1, 0, 0], [0, 0, 1, -1], [0, 0, 0, 1]]) {
+				cube(size = [2, 3, 7], center = true);
+			}
+			multmatrix([[1, 0, 0, -5], [0, 1, 0, 0], [0, 0, 1, -5], [0, 0, 0, 1]]) {
+				cube(size = [5, 7, 1], center = true);
+			}
+		}
+	}
+}
+multmatrix([[1, 0, 0, -4], [0, 1, 0, 0], [0, 0, 1, 0], [0, 0, 0, 1]]) {
+	multmatrix([[0, 0, 1, 0], [0, 1, 0, 0], [-1, 0, 0, 0], [0, 0, 0, 1]]) {
+		cylinder($fn = 200, $fa = 12, $fs = 2, h = 8, r1 = 2, r2 = 2, center = false);
+	}
+}
+difference() {
+	group() {
+		difference() {
+			multmatrix([[1, 0, 0, 0], [0, 1, 0, 0], [0, 0, 1, 5], [0, 0, 0, 1]]) {
+				multmatrix([[0, 0, 1, 0], [1, 0, 0, 0], [0, 1, 0, 0], [0, 0, 0, 1]]) {
+					cylinder($fn = 16, $fa = 12, $fs = 2, h = 7, r1 = 12, r2 = 12, center = true);
+				}
+			}
+			multmatrix([[1, 0, 0, 0], [0, 1, 0, 0], [0, 0, 1, 0], [0, 0, 0, 1]]) {
+				multmatrix([[0, 0, 1, 0], [1, 0, 0, 0], [0, 1, 0, 0], [0, 0, 0, 1]]) {
+					cylinder($fn = 16, $fa = 12, $fs = 2, h = 6, r1 = 12, r2 = 12, center = true);
+				}
+			}
+		}
+	}
+	group() {
+		multmatrix([[1, 0, 0, -2.8], [0, 1, 0, 4], [0, 0, 1, 10], [0, 0, 0, 1]]) {
+			multmatrix([[0, 0, -1, 0], [-1, 0, 0, 0], [0, 1, 0, 0], [0, 0, 0, 1]]) {
+				linear_extrude(height = 4, center = false, convexity = 1, scale = [1, 1], $fn = 16, $fa = 12, $fs = 2) {
+					text(text = "EUC", size = 3, spacing = 1, font = "", direction = "ltr", language = "en", script = "Latn", halign = "left", valign = "baseline", $fn = 16, $fa = 12, $fs = 2);
+				}
+			}
+		}
+		multmatrix([[1, 0, 0, -2.8], [0, 1, 0, 9.5], [0, 0, 1, 6], [0, 0, 0, 1]]) {
+			multmatrix([[0, 0, -1, 0], [-1, 0, 0, 0], [0, 1, 0, 0], [0, 0, 0, 1]]) {
+				linear_extrude(height = 4, center = false, convexity = 1, scale = [1, 1], $fn = 16, $fa = 12, $fs = 2) {
+					text(text = "IS NOT CRIME", size = 2, spacing = 1, font = "", direction = "ltr", language = "en", script = "Latn", halign = "left", valign = "baseline", $fn = 16, $fa = 12, $fs = 2);
+				}
+			}
+		}
+	}
+	multmatrix([[1, 0, 0, 9.5], [0, 1, 0, 0], [0, 0, 1, 0], [0, 0, 0, 1]]) {
+		multmatrix([[1, 0, 0, 0], [0, -1, 0, 0], [0, 0, 1, 0], [0, 0, 0, 1]]) {
+			group() {
+				multmatrix([[1, 0, 0, -2.8], [0, 1, 0, 4], [0, 0, 1, 10], [0, 0, 0, 1]]) {
+					multmatrix([[0, 0, -1, 0], [-1, 0, 0, 0], [0, 1, 0, 0], [0, 0, 0, 1]]) {
+						linear_extrude(height = 4, center = false, convexity = 1, scale = [1, 1], $fn = 16, $fa = 12, $fs = 2) {
+							text(text = "EUC", size = 3, spacing = 1, font = "", direction = "ltr", language = "en", script = "Latn", halign = "left", valign = "baseline", $fn = 16, $fa = 12, $fs = 2);
+						}
+					}
+				}
+				multmatrix([[1, 0, 0, -2.8], [0, 1, 0, 9.5], [0, 0, 1, 6], [0, 0, 0, 1]]) {
+					multmatrix([[0, 0, -1, 0], [-1, 0, 0, 0], [0, 1, 0, 0], [0, 0, 0, 1]]) {
+						linear_extrude(height = 4, center = false, convexity = 1, scale = [1, 1], $fn = 16, $fa = 12, $fs = 2) {
+							text(text = "IS NOT CRIME", size = 2, spacing = 1, font = "", direction = "ltr", language = "en", script = "Latn", halign = "left", valign = "baseline", $fn = 16, $fa = 12, $fs = 2);
+						}
+					}
+				}
+			}
+		}
+	}
+	multmatrix([[1, 0, 0, -4], [0, 1, 0, 0], [0, 0, 1, 15], [0, 0, 0, 1]]) {
+		multmatrix([[0, 0, 1, 0], [0, 1, 0, 0], [-1, 0, 0, 0], [0, 0, 0, 1]]) {
+			cylinder($fn = 160, $fa = 12, $fs = 2, h = 8, r1 = 1.5, r2 = 1.5, center = false);
+		}
+	}
+}
+
