@@ -1,6 +1,6 @@
-width =     160/2;
-depth =     75.5;
-height = 38.5;
+width =     170/2;
+depth =     88.5;
+height = 52.0;
 thick =       2;
 plateSpacing = 40;
 holder = 4;
